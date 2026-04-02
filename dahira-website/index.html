@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAHIRA MAFATIFOUL BICHRI - Platform Admin</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-sidebar">
+                <img src="WhatsApp Image 2026-03-20 at 22.00.52.jpeg" alt="Dahira" class="logo-small">
+                <h2>DAHIRA</h2>
+            </div>
+            <ul>
+                <li class="nav-item active" data-tab="accueil"><i class="fas fa-home"></i> Accueil</li>
+                <li class="nav-item" data-tab="membres"><i class="fas fa-users"></i> Membres</li>
+                <li class="nav-item" data-tab="recettes"><i class="fas fa-coins"></i> Recettes</li>
+                <li class="nav-item" data-tab="depenses"><i class="fas fa-shopping-cart"></i> Dépenses</li>
+            </ul>
+        </nav>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <h1>Platform DAHIRA MAFATIFOUL BICHRI</h1>
+                <p> Gestion spirituelle - Voie Serigne Touba</p>
+            </header>
+
+            <!-- Tabs content -->
+            <div class="tabs-container">
+                <!-- Accueil -->
+                <div id="accueil" class="tab-content active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h3 id="totalMembres">0</h3>
+                            <p>Membres</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-coins"></i>
+                            <h3 id="totalRecettes">0 CFA</h3>
+                            <p>Recettes total</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3 id="totalDepenses">0 CFA</h3>
+                            <p>Dépenses total</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-balance-scale"></i>
+                            <h3 id="solde">0 CFA</h3>
+                            <p>Solde</p>
+                        </div>
+                    </div>
+
+                    <!-- Inscription Section -->
+                    <div class="inscription-section">
+                        <div class="form-section">
+                            <h2><i class="fas fa-user-plus"></i> Nouvelle inscription</h2>
+                            <form id="inscriptionForm">
+                                <div class="input-group">
+                                    <label>Nom *</label>
+                                    <input type="text" id="nom" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Prénom *</label>
+                                    <input type="text" id="prenom" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Téléphone (9 chiffres SN) *</label>
+                                    <input type="tel" id="telephone" placeholder="771234567" pattern="[0-9]{9}" required>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="interets" value="quran"> Quran</label>
+                                    <label><input type="checkbox" name="interets" value="kassida"> Kassida</label>
+                                    <label><input type="checkbox" name="interets" value="dourous"> Dourous</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Ajouter membre</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Cotisations Spécifiques -->
+                    <div class="cotisations-section">
+                        <h2><i class="fas fa-hand-holding-heart"></i> Cotisations Spécifiques</h2>
+                        <div class="cotisations-grid">
+                            <div class="stat-card cotisation-card">
+                                <i class="fas fa-tshirt"></i>
+                                <h3 id="totalCotisationTenues">0 CFA</h3>
+                                <p>Cotisation Tenues</p>
+                            </div>
+                            <div class="stat-card cotisation-card">
+                                <i class="fas fa-coins"></i>
+                                <h3 id="totalAutresCotisations">0 CFA</h3>
+                                <p>Autres Cotisations</p>
+                            </div>
+                        </div>
+
+                        <div class="table-section">
+                            <h2>Cotisations récentes</h2>
+                            <div class="table-container">
+                                <table id="cotisationsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Montant</th>
+                                            <th>Description</th>
+                                            <th>Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                            <div class="form-section">
+                            <h3>Ajouter cotisation tenues</h3>
+                            <form id="cotisationTenuesForm">
+                                <div class="input-group">
+                                    <label>Membre</label>
+                                    <select id="membreCotisation" required>
+                                        <option value="">Sélectionner membre</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Montant (CFA)</label>
+                                    <input type="number" id="montantCotisation" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Description</label>
+                                    <input type="text" id="descCotisation">
+                                </div>
+                                <div class="input-group">
+                                    <label>Date</label>
+                                    <input type="date" id="dateCotisation">
+                                </div>
+                                <button type="submit" class="btn-success">Ajouter cotisation</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membres -->
+                <div id="membres" class="tab-content">
+                    <div class="table-section">
+                        <h2>Membres dahira</h2>
+                        <div class="table-container">
+                            <table id="membresTable">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Tél</th>
+                                        <th>Intérêts</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recettes -->
+                <div id="recettes" class="tab-content">
+                    <div class="form-section">
+                        <h2>Ajouter recette</h2>
+                        <form id="recetteForm">
+                            <div class="input-group">
+                                <label>Montant (CFA)</label>
+                                <input type="number" id="montantRecette" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Description</label>
+                                <input type="text" id="descRecette">
+                            </div>
+                            <div class="input-group">
+                                <label>Date</label>
+                                <input type="date" id="dateRecette">
+                            </div>
+                            <button type="submit" class="btn-success">Ajouter recette</button>
+                        </form>
+                    </div>
+                    <div class="table-section">
+                        <h3>Recettes récentes</h3>
+                        <div class="table-container">
+                            <table id="recettesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Montant</th>
+                                        <th>Description</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dépenses -->
+                <div id="depenses" class="tab-content">
+                    <div class="form-section">
+                        <h2>Ajouter dépense</h2>
+                        <form id="depenseForm">
+                            <div class="input-group">
+                                <label>Montant (CFA)</label>
+                                <input type="number" id="montantDepense" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Description</label>
+                                <input type="text" id="descDepense">
+                            </div>
+                            <div class="input-group">
+                                <label>Date</label>
+                                <input type="date" id="dateDepense">
+                            </div>
+                            <button type="submit" class="btn-danger">Ajouter dépense</button>
+                        </form>
+                    </div>
+                    <div class="table-section">
+                        <h3>Dépenses récentes</h3>
+                        <div class="table-container">
+                            <table id="depensesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Montant</th>
+                                        <th>Description</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
